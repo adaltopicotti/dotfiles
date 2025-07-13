@@ -84,60 +84,65 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
-require 'core/options' -- Core options
-require 'core/keymaps' -- Keymaps
+require("core/options") -- Core options
+require("core/keymaps") -- Keymaps
+require("core/snippets") -- Snippets
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-  if vim.v.shell_error ~= 0 then
-    error('Error cloning lazy.nvim:\n' .. out)
-  end
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		error("Error cloning lazy.nvim:\n" .. out)
+	end
 end
 
 ---@type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
-require('lazy').setup({
-  -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  { "nvim-tree/nvim-web-devicons", opts = {} },
-  'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
-  -- Theme
-  require 'plugins.themes.tokyonight', -- Tokyo Night theme
-  -- Plugins
-  require 'plugins.mason', -- Package manager for Neovim
-  require 'plugins.gitsigns', -- Adds git related signs to the gutter, as well as utilities for managing changes
-  require 'plugins.telescope', -- Fuzzy finder plugin
-  require 'plugins.which-key', -- Useful plugin to show you pending keybinds.
-  require 'plugins.lazydev', -- Lazy loading of Neovim plugins
-  require 'plugins.lspconfig', -- LSP configuration
-  require 'plugins.autocompletion', -- Autocompletion configuration
-  require 'plugins.todo-comments', -- Highlight TODO comments
-  require 'plugins.treesitter', -- Treesitter configuration
-  require 'plugins.autoformat', -- Auto-formatting on save
-  require 'plugins.neo-tree', -- File explorer
+require("lazy").setup({
+	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+	{ "nvim-tree/nvim-web-devicons", opts = {} },
+	"NMAC427/guess-indent.nvim", -- Detect tabstop and shiftwidth automatically
+	-- Theme
+	require("plugins.themes.tokyonight"), -- Tokyo Night theme
+	-- Plugins
+	require("plugins.mason"), -- Package manager for Neovim
+	require("plugins.gitsigns"), -- Adds git related signs to the gutter, as well as utilities for managing changes
+	require("plugins.telescope"), -- Fuzzy finder plugin
+	require("plugins.which-key"), -- Useful plugin to show you pending keybinds.
+	require("plugins.lazydev"), -- Lazy loading of Neovim plugins
+	require("plugins.lspconfig"), -- LSP configuration
+	require("plugins.autocompletion"), -- Autocompletion configuration
+	require("plugins.todo-comments"), -- Highlight TODO comments
+	require("plugins.treesitter"), -- Treesitter configuration
+	require("plugins.autoformat"), -- Auto-formatting on save
+	require("plugins.neo-tree"), -- File explorer
+	require("plugins.bufferline"), -- Buffer line at the top of the window
+	require("plugins.lualine"), -- Status line at the bottom of the window
+	require("plugins.debug"), -- Debugging support
+	require("plugins.indent-blankline"), -- Indentation guides
 }, {
-  ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
-  },
+	ui = {
+		-- If you are using a Nerd Font: set icons to an empty table which will use the
+		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+		icons = vim.g.have_nerd_font and {} or {
+			cmd = "⌘",
+			config = "🛠",
+			event = "📅",
+			ft = "📂",
+			init = "⚙",
+			keys = "🗝",
+			plugin = "🔌",
+			runtime = "💻",
+			require = "🌙",
+			source = "📄",
+			start = "🚀",
+			task = "📌",
+			lazy = "💤 ",
+		},
+	},
 })

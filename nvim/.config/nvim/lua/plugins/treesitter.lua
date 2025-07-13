@@ -15,7 +15,15 @@ return { -- Highlight, edit, and navigate code
         'markdown_inline', 
         'query', 
         'vim', 
-        'vimdoc' 
+        'vimdoc',
+        'typescript',
+        'javascript',
+        'json',
+        'python',
+        'go',
+        'bash',
+        'rust',
+        'yaml',
      },
       -- Autoinstall languages that are not installed
       auto_install = true,
