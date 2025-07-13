@@ -1,0 +1,6 @@
+alias python="python3"
+alias pip="pip3"
+alias nvim="~/nvim-macos-x86_64/bin/nvim"
+
+alias gpushb="git push --set-upstream origin HEAD"
+alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
