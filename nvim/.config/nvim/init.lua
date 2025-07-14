@@ -88,6 +88,7 @@ require("core/options") -- Core options
 require("core/keymaps") -- Keymaps
 require("core/snippets") -- Snippets
 
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -105,7 +106,6 @@ rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-	{ "nvim-tree/nvim-web-devicons", opts = {} },
 	"NMAC427/guess-indent.nvim", -- Detect tabstop and shiftwidth automatically
 	-- Theme
 	require("plugins.themes.tokyonight"), -- Tokyo Night theme
@@ -126,6 +126,7 @@ require("lazy").setup({
 	require("plugins.debug"), -- Debugging support
 	require("plugins.indent-blankline"), -- Indentation guides
 	require("plugins.autopairs"), -- Autopairs for brackets and quotes
+	-- require("plugins.dap")
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
