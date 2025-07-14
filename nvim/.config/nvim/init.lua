@@ -125,6 +125,7 @@ require("lazy").setup({
 	require("plugins.lualine"), -- Status line at the bottom of the window
 	require("plugins.debug"), -- Debugging support
 	require("plugins.indent-blankline"), -- Indentation guides
+	require("plugins.autopairs"), -- Autopairs for brackets and quotes
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
